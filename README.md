@@ -27,6 +27,8 @@ USERNAME="username"
 
 Change the variables to match your server
 
+You can also change `PWPROMPT="false"` to `PWPROMPT="true"` if you don't want it to automatically authenticate you.
+
 ### Usage
 
 To use Push after installing and setting it up:
