@@ -11,31 +11,38 @@ if [ "$input" != "Y" ]; then
 	fi;
 fi;
 
+echo "Installing Push requirements..."
+
 echo "Installing wget..."
 sudo apt-get install wget
 
 echo "Installing SCP..."
 sudo apt-get install scp
 
+echo "Installing sshpass..."
+sudo apt-get install sshpass
+
 # Check if binary exists
 
 if [ ! -f "push.sh" ]; then
-
 	# Download binary from git
-	
 	echo "Push binary not found..."
-	echo "Downloading push binary..."
+	echo "Downloading Push binary..."
 	wget https://raw.githubusercontent.com/Moudoux/Push/master/push.sh
-
 else 	
-
 	echo "Found push binary"
-
 fi
 
-echo "Installing sshpass..."
+if [ ! -f "settings.sh" ]; then
+	# Download binary from git
+	echo "Push sample config file not found..."
+	echo "Downloading Push sample config file..."
+	wget https://raw.githubusercontent.com/Moudoux/Push/master/settings.sh
+else 	
+	echo "Found Push sample config file"
+fi
 
-sudo apt-get install sshpass
+INSTALLDIR=~/bin/
 
 echo "Installing Push..."
 
@@ -43,8 +50,14 @@ mkdir ~/bin &> /dev/null
 rm ~/bin/push.sh &> /dev/null
 cp push.sh ~/bin/push.sh &> /dev/null
 
+if [ ! -f "$INSTALLDIR/settings.sh" ]; then
+	echo "Config file not found... Installing new config file..."
+	cp settings.sh ~/bin/settings.sh &> /dev/null
+else 
+	echo "Config file found, will not install new config file"
+fi
+
 RCFILE=~/.bashrc
-INSTALLFILE=~/bin/push.sh
 
 if grep -q 'alias push="bash ~/bin/push.sh"' "$RCFILE"; then
 	echo "Command alias already installed... Skipping..."
@@ -55,4 +68,4 @@ fi
 alias push="bash ~/bin/push.sh"
 
 echo "Installation done"
-echo "Please change the settings in \"$INSTALLFILE\" to match your server"
+echo "Please change the settings in \"$INSTALLDIR/settings.sh\" to match your server"
