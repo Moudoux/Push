@@ -11,6 +11,25 @@ if [ "$input" != "Y" ]; then
 	fi;
 fi;
 
+echo "Installing wget..."
+sudo apt-get install wget
+
+# Check if binary exists
+
+if [ ! -f "push.sh" ]; then
+
+	# Download binary from git
+	
+	echo "Push binary not found..."
+	echo "Downloading push binary..."
+	wget https://raw.githubusercontent.com/Moudoux/Push/master/push.sh
+
+else 	
+
+	echo "Found push binary"
+
+fi
+
 echo "Installing sshpass..."
 
 sudo apt-get install sshpass
