@@ -1,5 +1,5 @@
 # Push
-A simple bash tool to push files to servers via SCP
+Push is a simple bash tool to push files to servers via SCP. Insted of you having to type the `scp <Source> <Account>@<Host>:<Destination>` command each time you want to upload a file to your server, you can just type `push <Source> <Destination>`
 
 ### Installation
 
