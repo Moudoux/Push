@@ -15,10 +15,9 @@ $ bash install.sh
 
 After you have installed push, you need to edit `~\bin\push.sh`
 
-In the push.sh file there are the following variables:
+In the `push.sh` file there are the following variables:
 
 ```sh
-# Push settings (Edit these to match your server)
 PW='password'
 PORT="22"
 SERVER="127.0.0.1"
@@ -27,7 +26,7 @@ USERNAME="username"
 
 Change the variables to match your server
 
-You can also change `PWPROMPT="false"` to `PWPROMPT="true"` if you don't want it to automatically authenticate you.
+You can also change `PWPROMPT="false"` to `PWPROMPT="true"` and set `PW='password'` to `PW=''` if you don't want it to automatically authenticate you.
 
 ### Usage
 
