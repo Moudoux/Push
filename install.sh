@@ -14,6 +14,9 @@ fi;
 echo "Installing wget..."
 sudo apt-get install wget
 
+echo "Installing SCP..."
+sudo apt-get install scp
+
 # Check if binary exists
 
 if [ ! -f "push.sh" ]; then
