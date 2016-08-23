@@ -23,20 +23,13 @@ if [ "$1" = "-v" ]; then
 	exit;
 fi
 
-if [ "$1" = "-u" ]; then
-	echo "Upgrade to the latest version of Push"
-	echo "To continue with the upgrade, please confirm"
-	echo "By typing \"Y\" and pressing enter"
-	
-	if [ "$input" != "Y" ]; then 
-		if [ "$input" != "y" ]; then 
-			echo "Upgrade aborted"
-			exit
-		fi;
-	fi;
-	
-	echo "Upgrading Push..."
+if [ "$1" = "-h" ]; then
+	echo "Push commands: push [-v (version)| -u (upgrade) | -h (help) | <Source file>] <Destination file>"
+	exit;
+fi
 
+if [ "$1" = "-u" ]; then	
+	echo "Upgrading Push..."
 	echo "Downloading Push binary..."
 	
 	mkdir ~/push_temp &> /dev/null
