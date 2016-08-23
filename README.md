@@ -13,7 +13,7 @@ $ bash install.sh
 
 ### Setting it up
 
-After you have installed push, you need to edit `~\bin\push.sh`
+After you have installed push, you need to edit `~\bin\settings.sh`
 
 In the `push.sh` file there are the following variables:
 
