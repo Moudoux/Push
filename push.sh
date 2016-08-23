@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="0.1 Beta"
+VERSION="0.2 Beta"
 
 # Push binary
 
@@ -20,6 +20,39 @@ fi
 
 if [ "$1" = "-v" ]; then
 	echo "You are running Push version $VERSION"
+	exit;
+fi
+
+if [ "$1" = "-u" ]; then
+	echo "Upgrade to the latest version of Push"
+	echo "To continue with the upgrade, please confirm"
+	echo "By typing \"Y\" and pressing enter"
+	
+	if [ "$input" != "Y" ]; then 
+		if [ "$input" != "y" ]; then 
+			echo "Upgrade aborted"
+			exit
+		fi;
+	fi;
+	
+	echo "Upgrading Push..."
+
+	echo "Downloading Push binary..."
+	
+	mkdir ~/push_temp &> /dev/null
+	cd ~/push_temp
+	
+	wget https://raw.githubusercontent.com/Moudoux/Push/master/push.sh &> /dev/null
+	
+	rm ~/bin/push.sh &> /dev/null
+	cp push.sh ~/bin/push.sh &> /dev/null
+	
+	cd ~/
+	
+	rm -R ~/push_temp &> /dev/null
+	
+	echo "Push has been updated to the latest version"
+	
 	exit;
 fi
 

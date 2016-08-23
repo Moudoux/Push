@@ -24,6 +24,9 @@ sudo apt-get install sshpass
 
 # Check if binary exists
 
+mkdir ~/push_temp &> /dev/null
+cd ~/push_temp
+
 if [ ! -f "push.sh" ]; then
 	# Download binary from git
 	echo "Push binary not found..."
@@ -66,6 +69,9 @@ else
 fi
 
 alias push="bash ~/bin/push.sh"
+
+cd ~/
+rm -R ~/push_temp &> /dev/null
 
 echo "Installation done"
 echo "Please change the settings in \"$INSTALLDIR/settings.sh\" to match your server"
