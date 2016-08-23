@@ -2,7 +2,7 @@
 
 # Push binary
 
-SYNTAX="push <File> <Destination>"
+SYNTAX="\"push <File> <Destination>\""
 
 # Push settings (Edit these to match your server)
 PW='password'
@@ -30,15 +30,11 @@ REMOTE_PATH="$2"
 echo "Pushing $FILE to $REMOTE_PATH..."
 
 if [ "$PWPROMPT" = "true" ]; then
-
 	# Manual
 	scp -P $PORT $FILE $USERNAME@$SERVER:$REMOTE_PATH
-
 else
-
 	# Automatic
 	sshpass -p "$PW" scp -P $PORT $FILE $USERNAME@$SERVER:$REMOTE_PATH
-	
 fi
 
 echo 'Push successful'
