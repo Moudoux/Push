@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="0.2.1 Beta"
+VERSION="2.1"
 
 # Push binary
 
