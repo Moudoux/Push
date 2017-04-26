@@ -7,7 +7,7 @@ VERSION="0.2.1 Beta"
 SYNTAX="\"push <File> <Destination>\""
 
 # Import settings
-source settings.sh
+source ~/bin/settings.sh
 
 # Promt for SCP password everytime or use sshpass ?
 # true = Promt for password everytime, false = Automatically put password
