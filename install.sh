@@ -74,4 +74,4 @@ cd ~/
 rm -R ~/push_temp &> /dev/null
 
 echo "Installation done"
-echo "Please change the settings in \"$INSTALLDIR/settings.sh\" to match your server"
+echo "Please change the settings in \"$INSTALLDIRsettings.sh\" to match your server"
